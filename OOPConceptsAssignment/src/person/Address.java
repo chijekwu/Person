@@ -6,4 +6,7 @@ public class Address {
 	public int zipcode;
 	public String city;
 	public String state;
+	Address(){
+		
+	}
 }

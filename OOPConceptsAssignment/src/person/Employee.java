@@ -1,19 +1,21 @@
 package person;
 
-public class Employee extends Person, PersonInterface{
-	
+public class Employee extends Person implements PersonInterface {
+
 	protected int employeeId;
 	protected double employeeSalary;
 	public double totalSalary;
+	public int earnHolidays;
 	
-	Employee(String name, char gender, int age, int employeeId, double employeeSalary, Address addr){
+	Employee(int employeeId, String name, char gender, int age, double employeeSalary, Address addr){
 		super(name, gender,  age);
-		super.createAddress(addr.streetName, addr.houseNumber, addr.zipcode, addr.city, addr.state);
+		//super.createAddress(addr.streetName, addr.houseNumber, addr.zipcode, addr.city, addr.state);
 		this.employeeId = employeeId;
 		this.employeeSalary = employeeSalary;
 	}
-	public void setTotalSalary(double totalSalary) {
-		this.totalSalary = totalSalary;
+	
+	public void setTotalSalary() {
+		this.totalSalary = this.employeeSalary;
 	}
 	public double getTotalSalary() {
 		return totalSalary;
@@ -22,33 +24,33 @@ public class Employee extends Person, PersonInterface{
 		return earnHoliday;
 	}
 	public double calculate(int count) {
-		
+		return count/7;
 	}
 	
-	public void showAddress(String address) {
-		
+	public void showAddress(Address address) {
+		System.out.printf("%d %s %s %s %d",address.houseNumber, address.streetName, address.city, address.state, address.zipcode);
 	}
 	public void setEarnHoliday(int numberOfWeekWorked) {
 		
-		this.earnHoliday = numberOfWeekWorked/7; //for every week the employee earn one day holiday
+		this.earnHoliday = (int) Math.floor(this.calculate(numberOfWeekWorked)); //for every week the employee earn one day holiday
 	}
 
 	private int earnHoliday;
 	
-	public Employee(String pname,char pGender,int pAge, int id, double salary) {
+	public Employee(int id, String pname,char pGender,int pAge, double salary) {
 		super(pname, pGender, pAge);
 		this.employeeId = id;
 		this.employeeSalary = salary;
 	}
 	
-	public double totalsalary(double rate) {
-		return this.employeeSalary*(1 + rate);
+	public void totalsalary(double rate) {
+		this.totalSalary=this.employeeSalary*(1 + rate);
 	}
 	
 	public void display() {
 		System.out.printf("%d ", this.employeeId);
 		super.display();
 		System.out.printf("earn holiday : %d days", this.earnHoliday);
-		System.out.printf("Salary: %0.3f", this.totalSalary);
+		System.out.printf("Salary: %f", this.totalSalary);
 	}
 }
