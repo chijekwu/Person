@@ -21,18 +21,18 @@ public class Starter {
 		double emp1Salary = scan.nextDouble();
 		
 		System.out.println("Enter Street Name: ");
-		String streetName = scan.nextLine();
-		scan.next();
+		String streetName = scan.next();
+		//scan.next();
 		System.out.println("Enter House number: ");
 		int houseNumber = scan.nextInt();
 		System.out.println("Enter State: ");
-		String state = scan.nextLine();
+		String state = scan.next();
 		System.out.println(state);
-		scan.next();
+		//scan.next();
 		
 		System.out.println("Enter city: ");
-		String city = scan.nextLine();
-		scan.next();
+		String city = scan.next();
+		//scan.next();
 		System.out.println("Enter zipcode: ");
 		int zipcode = scan.nextInt();
 		scan.close();
@@ -41,6 +41,12 @@ public class Starter {
 		
 		Employee emp1 = new Employee(emp1Id, emp1Name, emp1Gender, emp1Age, emp1Salary);
 		emp1.createAddress(streetName, houseNumber, zipcode, city, state);
+		System.out.println("How Week worked: ");
+		int numOfWeeks = scan.nextInt();
+		emp1.setEarnHoliday(numOfWeeks);
+		System.out.println("Bonus rate: ");
+		double Brate = scan.nextInt();
+		emp1.setTotalSalary(Brate);
 		emp1.display();
 	}
 

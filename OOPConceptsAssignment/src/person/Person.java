@@ -27,8 +27,14 @@ public class Person {
 		this.address = addr;
 	}
 	public void display() {
+		System.out.printf("Name: ");
 		System.out.println(this.pname);
-		System.out.printf("%d %s %s %s %d",address.houseNumber, address.streetName, address.city, address.state, address.zipcode);
+		System.out.printf("Gender: ");
+		System.out.println(this.pGender);
+		System.out.printf("Age: ");
+		System.out.println(this.pAge);
+		System.out.printf("Address: ");
+		System.out.printf("%d %s\n\t\t %s, %s %d",this.address.houseNumber, this.address.streetName, this.address.city, this.address.state, this.address.zipcode);
 	}
 	
 }

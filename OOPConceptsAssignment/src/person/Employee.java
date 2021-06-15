@@ -32,7 +32,7 @@ public class Employee extends Person implements PersonInterface {
 	}
 	public void setEarnHoliday(int numberOfWeekWorked) {
 		
-		this.earnHoliday = (int) Math.floor(this.calculate(numberOfWeekWorked)); //for every week the employee earn one day holiday
+		this.earnHoliday = (int) Math.ceil(this.calculate(numberOfWeekWorked)); //for every week the employee earn one day holiday
 	}
 
 	private int earnHoliday;
@@ -43,14 +43,17 @@ public class Employee extends Person implements PersonInterface {
 		this.employeeSalary = salary;
 	}
 	
-	public void totalsalary(double rate) {
+	public void setTotalSalary(double rate) {
 		this.totalSalary=this.employeeSalary*(1 + rate);
 	}
 	
 	public void display() {
-		System.out.printf("%d ", this.employeeId);
+		System.out.printf("EmployeeId: %d ", this.employeeId);
+		System.out.println("");
 		super.display();
-		System.out.printf("earn holiday : %d days", this.earnHoliday);
-		System.out.printf("Salary: %f", this.totalSalary);
+		System.out.println("");
+		System.out.printf("earn holiday: %d days", this.getEarnHoliday());
+		System.out.println("");
+		System.out.printf("Salary: %f", this.getTotalSalary());
 	}
 }
