@@ -27,14 +27,15 @@ public class Person {
 		this.address = addr;
 	}
 	public void display() {
-		System.out.printf("Name: ");
+		System.out.println("******************************************");
+		System.out.printf("\tName: ");
 		System.out.println(this.pname);
-		System.out.printf("Gender: ");
+		System.out.printf("\tGender: ");
 		System.out.println(this.pGender);
-		System.out.printf("Age: ");
+		System.out.printf("\tAge: ");
 		System.out.println(this.pAge);
-		System.out.printf("Address: ");
-		System.out.printf("%d %s\n\t\t %s, %s %d",this.address.houseNumber, this.address.streetName, this.address.city, this.address.state, this.address.zipcode);
+		System.out.printf("\tAddress: ");
+		System.out.printf("%d %s\n\t %s, %s %d",this.address.houseNumber, this.address.streetName, this.address.city, this.address.state, this.address.zipcode);
 	}
 	
 }

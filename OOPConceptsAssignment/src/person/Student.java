@@ -5,13 +5,13 @@ public class Student extends Person {
 	private double subject1;
 	private double subject2;
 	private double subject3;
-	private double major;
+	private String major;
 	private double averageScore;
 	private int studentId;
 	
-	public Student(String name, char gender, int age,int studentId, double subject1, double subject2, double subject3, double major, Address addr) {
+	public Student(int studentId, String name, char gender, int age, double subject1, double subject2, double subject3, String major) {
 		super(name, gender,age);
-		super.createAddress(addr.streetName, addr.houseNumber, addr.zipcode, addr.city, addr.state);
+		//super.createAddress(addr.streetName, addr.houseNumber, addr.zipcode, addr.city, addr.state);
 		this.studentId = studentId;
 		this.subject1 = subject1;
 		this.subject2 = subject2;
@@ -24,7 +24,7 @@ public class Student extends Person {
 	public void setAverageScore() {
 		this.averageScore = (this.subject1 + this.subject2 + this.subject3)/3;
 	}
-	public double getMajor() {
+	public String getMajor() {
 		return major;
 	}
 	public int getStudentId() {
@@ -35,6 +35,6 @@ public class Student extends Person {
 		System.out.printf("%d ", this.studentId);
 		super.display();
 		System.out.printf("Major : %s", this.major);
-		System.out.printf("Average Score: %0.3f", this.averageScore);
+		System.out.printf("Average Score: %3f", this.averageScore);
 	}
 }
